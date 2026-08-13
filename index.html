@@ -1,1 +1,323 @@
-fgjfgjgj
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SteadyTouch — Diplomarbeit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#12181F;
+    --surface:#1B2430;
+    --surface-2:#232E3D;
+    --text:#EDEFF2;
+    --text-muted:#8A94A3;
+    --accent-steady:#6FD9A8;
+    --accent-tremor:#E8A33D;
+    --border:#2A3644;
+    --radius:14px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3, .display{
+    font-family:'Space Grotesk', sans-serif;
+    letter-spacing:-0.02em;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+
+  a{ color:var(--accent-steady); }
+  :focus-visible{
+    outline:2px solid var(--accent-steady);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:10;
+    background:rgba(18,24,31,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .brand{ font-weight:700; font-size:1.05rem; display:flex; align-items:center; gap:10px;}
+  .brand .dot{ width:9px; height:9px; border-radius:50%; background:var(--accent-steady); }
+  nav ul{ list-style:none; display:flex; gap:28px; }
+  nav a{ color:var(--text-muted); text-decoration:none; font-size:0.92rem; }
+  nav a:hover{ color:var(--text); }
+
+  /* ---------- HERO ---------- */
+  header.hero{ padding:96px 0 80px; }
+  .eyebrow{
+    color:var(--accent-tremor);
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.8rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    display:inline-block;
+  }
+  h1.display{
+    font-size:clamp(2.6rem, 6vw, 4.2rem);
+    font-weight:700;
+    line-height:1.02;
+    margin-bottom:22px;
+  }
+  h1.display span{ color:var(--accent-steady); }
+  .lede{
+    color:var(--text-muted);
+    font-size:1.15rem;
+    max-width:56ch;
+    margin-bottom:48px;
+  }
+
+  /* signature: tremor -> steady line */
+  .signal{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:28px 28px 22px;
+  }
+  .signal svg{ width:100%; height:auto; display:block; }
+  .signal-labels{
+    display:flex; justify-content:space-between;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.78rem;
+    color:var(--text-muted);
+    margin-top:14px;
+  }
+  .signal-labels .l-tremor{ color:var(--accent-tremor); }
+  .signal-labels .l-steady{ color:var(--accent-steady); }
+
+  path.raw{
+    fill:none; stroke:var(--accent-tremor); stroke-width:2.5;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
+  path.filtered{
+    fill:none; stroke:var(--accent-steady); stroke-width:3;
+    stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray:600; stroke-dashoffset:600;
+    animation: draw 3.5s ease-in-out infinite;
+  }
+  @keyframes draw{
+    0%,100%{ stroke-dashoffset:600; opacity:0.15;}
+    55%{ stroke-dashoffset:0; opacity:1;}
+    85%{ stroke-dashoffset:0; opacity:1;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    path.filtered{ animation:none; stroke-dashoffset:0; opacity:1; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:64px 0; border-top:1px solid var(--border); }
+  .section-head{ display:flex; align-items:baseline; gap:14px; margin-bottom:32px; }
+  .section-num{ font-family:'JetBrains Mono', monospace; color:var(--accent-steady); font-size:0.85rem; }
+  h2{ font-size:1.7rem; font-weight:600; }
+
+  .stat-row{ display:flex; gap:40px; flex-wrap:wrap; margin:36px 0 8px; }
+  .stat{ min-width:160px; }
+  .stat .num{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:2.6rem; font-weight:700; color:var(--accent-steady);
+    line-height:1;
+  }
+  .stat .lbl{ color:var(--text-muted); font-size:0.88rem; margin-top:8px; }
+
+  p{ color:#C7CDD5; margin-bottom:16px; max-width:68ch; }
+  p strong{ color:var(--text); font-weight:600; }
+
+  .cards{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; margin-top:28px; }
+  .card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:22px;
+  }
+  .card h3{ font-size:1.02rem; margin-bottom:10px; }
+  .card p{ font-size:0.92rem; color:var(--text-muted); margin-bottom:0; }
+
+  /* ---------- PROGRESS ---------- */
+  .progress-card{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:32px;
+  }
+  .progress-top{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:18px; flex-wrap:wrap; gap:8px;}
+  .progress-pct{ font-family:'Space Grotesk', sans-serif; font-size:2rem; font-weight:700; color:var(--accent-steady); }
+  .progress-track{
+    width:100%; height:12px; background:var(--surface-2);
+    border-radius:999px; overflow:hidden; border:1px solid var(--border);
+  }
+  .progress-fill{
+    height:100%; border-radius:999px;
+    background:linear-gradient(90deg, var(--accent-tremor), var(--accent-steady));
+    width:0%;
+    transition:width 1.1s cubic-bezier(.4,0,.2,1);
+  }
+  .milestones{ list-style:none; margin-top:26px; display:flex; flex-direction:column; gap:10px; }
+  .milestones li{
+    display:flex; align-items:center; gap:12px;
+    font-size:0.94rem; color:var(--text-muted);
+  }
+  .milestones li.done{ color:var(--text); }
+  .m-dot{ width:9px; height:9px; border-radius:50%; background:var(--border); flex-shrink:0; }
+  .milestones li.done .m-dot{ background:var(--accent-steady); }
+  .milestones li.active .m-dot{ background:var(--accent-tremor); }
+  .updated{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--text-muted); margin-top:22px; }
+
+  /* ---------- TEAM ---------- */
+  .team-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:14px; margin-top:24px; }
+  .team-item{
+    background:var(--surface); border:1px solid var(--border);
+    border-radius:var(--radius); padding:18px;
+    font-family:'JetBrains Mono', monospace; font-size:0.86rem; color:var(--text-muted);
+  }
+
+  footer{ padding:48px 0 64px; border-top:1px solid var(--border); }
+  footer p{ font-size:0.85rem; color:var(--text-muted); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="brand"><span class="dot"></span> SteadyTouch</div>
+    <ul>
+      <li><a href="#idee">Idee</a></li>
+      <li><a href="#fortschritt">Fortschritt</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">HTL Diplomarbeit — Projektstart</span>
+    <h1 class="display">Aus zittriger Eingabe<br>wird <span>ruhige Steuerung.</span></h1>
+    <p class="lede">SteadyTouch erkennt und glättet unwillkürliche Zitter- und Schüttelbewegungen bei der Gestensteuerung — damit motorisch eingeschränkte Menschen digitale Geräte präziser bedienen können.</p>
+
+    <div class="signal">
+      <svg viewBox="0 0 800 160" preserveAspectRatio="none" role="img" aria-label="Animation: eine unruhige, zittrige Linie wird zu einer ruhigen, geraden Linie geglättet">
+        <path class="raw" d="M20,80 L45,50 L60,100 L80,40 L100,110 L120,55 L140,95 L160,45 L180,105 L200,60 L220,90 L240,50 L260,100 L280,65 L300,85 L320,55 L340,95 L360,70 L380,80" />
+        <path class="filtered" d="M420,80 C500,80 560,80 640,80 C700,80 740,80 780,80" />
+      </svg>
+      <div class="signal-labels">
+        <span class="l-tremor">roh erfasstes Signal</span>
+        <span class="l-steady">gefiltert, stabilisiert</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="idee">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">01</span><h2>Ausgangssituation</h2></div>
+    <p>Bei einem Webtechnologie-Accessibility-Workshop mit <strong>Stefan Barac und Claudio Zeni von Incluthon</strong> wurde uns klar: Accessibility wird trotz technologischem Fortschritt noch immer zu wenig mitgedacht.</p>
+
+    <div class="stat-row">
+      <div class="stat"><div class="num">~14%</div><div class="lbl">der österreichischen Bevölkerung leben mit motorischen Einschränkungen</div></div>
+      <div class="stat"><div class="num">4</div><div class="lbl">Teammitglieder</div></div>
+      <div class="stat"><div class="num">150–180</div><div class="lbl">Arbeitsstunden pro Person</div></div>
+    </div>
+
+    <p>Parkinson, MS, Zerebralparalyse, altersbedingte Einschränkungen, Feinmotorik-Probleme, Schlaganfälle und Unfallverletzungen erschweren vielen Menschen die Bedienung von Handys und Computern — Geräten, deren Nutzung im Alltag mittlerweile praktisch verpflichtend ist.</p>
+
+    <div class="section-head" style="margin-top:52px;"><span class="section-num">02</span><h2>Die Idee</h2></div>
+    <p>SteadyTouch ist ein intuitives, <strong>gestikgesteuertes System</strong>, das Hand- (optional Augen-)Bewegungen per Kamera erfasst, verarbeitet und ungewollte Zitter- oder Schüttelbewegungen durch Filtermethoden bzw. KI-gestützte Verfahren herausfiltert. Das Ergebnis: stabile, präzise Gesten für die Interaktion mit digitalen Interfaces.</p>
+
+    <div class="cards">
+      <div class="card"><h3>Web-App</h3><p>Läuft lokal auf Laptop/PC mit angeschlossener Kamera, mehrseitig aufgebaut.</p></div>
+      <div class="card"><h3>Testumgebung</h3><p>Selbst programmierte Beispiel-Apps, angelehnt an alltägliche Anwendungen.</p></div>
+      <div class="card"><h3>Ziel</h3><p>Solide Grundlage für Weiterentwicklung schaffen und reale Einsetzbarkeit evaluieren.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="fortschritt">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">03</span><h2>Projektfortschritt</h2></div>
+
+    <div class="progress-card">
+      <div class="progress-top">
+        <span>Gesamtstatus</span>
+        <span class="progress-pct" id="pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="fill"></div>
+      </div>
+
+      <ul class="milestones" id="milestones"></ul>
+      <div class="updated" id="updated"></div>
+    </div>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head"><span class="section-num">04</span><h2>Team</h2></div>
+    <p>4 Personen, HTL 5. Klasse, gemeinsam ca. 600–720 Arbeitsstunden für Konzept, Entwicklung, Testung und Dokumentation.</p>
+    <div class="team-grid">
+      <div class="team-item">Teammitglied 1</div>
+      <div class="team-item">Teammitglied 2</div>
+      <div class="team-item">Teammitglied 3</div>
+      <div class="team-item">Teammitglied 4</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>SteadyTouch — Diplomarbeit-Projekt · Idee angeregt durch den Accessibility-Workshop mit Stefan Barac &amp; Claudio Zeni (Incluthon)</p>
+  </div>
+</footer>
+
+<script>
+  // ====== HIER EINFACH ANPASSEN, WENN SICH DER FORTSCHRITT ÄNDERT ======
+  const PROGRESS_PERCENT = 15; // Zahl zwischen 0 und 100 ändern
+  const LAST_UPDATED = "13. August 2026"; // Datum manuell aktualisieren
+
+  const MILESTONES = [
+    { label: "Projektidee & Konzept", status: "done" },      // done | active | open
+    { label: "Recherche (Accessibility, Tracking-Methoden)", status: "active" },
+    { label: "Kamera-basiertes Gesten-Tracking (Prototyp)", status: "open" },
+    { label: "Filter-/KI-Algorithmus zur Zitterreduktion", status: "open" },
+    { label: "Testumgebung mit Beispiel-Apps", status: "open" },
+    { label: "Evaluierung & Dokumentation", status: "open" },
+  ];
+  // =======================================================================
+
+  document.getElementById("pct").textContent = PROGRESS_PERCENT + "%";
+  document.getElementById("updated").textContent = "Zuletzt aktualisiert: " + LAST_UPDATED;
+
+  const list = document.getElementById("milestones");
+  MILESTONES.forEach(m => {
+    const li = document.createElement("li");
+    li.className = m.status === "done" ? "done" : m.status === "active" ? "active" : "";
+    li.innerHTML = '<span class="m-dot"></span>' + m.label;
+    list.appendChild(li);
+  });
+
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      document.getElementById("fill").style.width = PROGRESS_PERCENT + "%";
+    }, 150);
+  });
+</script>
+
+</body>
+</html>
