@@ -20,9 +20,9 @@
 
 <script setup>
 const team = [
-  { name: 'Teammitglied 1', role: 'Tracking & Kamera' },
-  { name: 'Teammitglied 2', role: 'Filter & Algorithmik' },
-  { name: 'Teammitglied 3', role: 'Web-App & UI' },
-  { name: 'Teammitglied 4', role: 'Testumgebung & Evaluierung' },
+  { name: 'Michaela Giffinger', role: 'Scrum Master, Frontend' },
+  { name: 'Fabian Lielacher', role: 'Product Owner, Frontend' },
+  { name: 'Alessandro Tervit', role: 'Mitarbeiter, Backend' },
+  { name: 'Felix Mayerhofer', role: 'Mitarbeiter, Frontend' },
 ]
 </script>
