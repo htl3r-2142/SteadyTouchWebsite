@@ -1,30 +1,28 @@
 <template>
-  <section id="fortschritt">
+  <section id="fortschritt" class="section--panel section--wide">
     <div class="wrap">
-      <div class="section-grid">
-        <span class="eyebrow">03 — Fortschritt</span>
-        <div>
-          <h2 class="serif">Wo wir gerade stehen</h2>
+      <div class="section-wide-grid">
+        <span class="eyebrow">Fortschritt</span>
+        <h2 class="serif">Wo wir gerade stehen</h2>
 
-          <div class="progress-top">
-            <span class="progress-pct">{{ progressPercent }}%</span>
-            <span class="progress-updated">{{ lastUpdated }}</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" :style="{ width: fillWidth + '%' }"></div>
-          </div>
+        <div class="progress-top">
+          <span class="progress-pct">{{ progressPercent }}%</span>
+          <span class="progress-updated">{{ lastUpdated }}</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" :style="{ width: fillWidth + '%' }"></div>
+        </div>
 
-          <div class="timeline">
-            <div
-              v-for="m in milestones"
-              :key="m.label"
-              class="t-row"
-              :class="m.status"
-            >
-              <span class="t-dot"></span>
-              <span class="label">{{ m.label }}</span>
-              <span class="tag">{{ tagFor(m.status) }}</span>
-            </div>
+        <div class="timeline">
+          <div
+            v-for="m in milestones"
+            :key="m.label"
+            class="t-row"
+            :class="m.status"
+          >
+            <span class="t-dot"></span>
+            <span class="label">{{ m.label }}</span>
+            <span class="tag">{{ tagFor(m.status) }}</span>
           </div>
         </div>
       </div>

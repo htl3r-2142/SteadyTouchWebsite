@@ -2,7 +2,7 @@
   <section id="idee">
     <div class="wrap">
       <div class="section-grid">
-        <span class="eyebrow">01 — Ausgangssituation</span>
+        <span class="eyebrow">Ausgangssituation</span>
         <div>
           <h2 class="serif">Ein Workshop, der uns die Lücke gezeigt hat</h2>
           <p>Bei einem Webtechnologie-Accessibility-Workshop mit <strong>Stefan Barac und Claudio Zeni von Incluthon</strong> wurde uns klar: Accessibility wird trotz technologischem Fortschritt noch immer zu wenig mitgedacht.</p>

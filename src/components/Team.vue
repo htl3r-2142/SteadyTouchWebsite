@@ -2,7 +2,7 @@
   <section id="team">
     <div class="wrap">
       <div class="section-grid">
-        <span class="eyebrow">04 — Team</span>
+        <span class="eyebrow">Team</span>
         <div>
           <h2 class="serif">4 Personen, ein Prototyp</h2>
           <p>HTL, 5. Klasse — gemeinsam ca. 600–720 Arbeitsstunden für Konzept, Entwicklung, Testung und Dokumentation.</p>
@@ -20,9 +20,9 @@
 
 <script setup>
 const team = [
-  { name: 'Michaela Giffinger', role: 'Scrum Master, Frontend' },
-  { name: 'Fabian Lielacher', role: 'Product Owner, Frontend' },
-  { name: 'Alessandro Tervit', role: 'Mitarbeiter, Backend' },
-  { name: 'Felix Mayerhofer', role: 'Mitarbeiter, Frontend' },
+  { name: 'Teammitglied 1', role: 'Tracking & Kamera' },
+  { name: 'Teammitglied 2', role: 'Filter & Algorithmik' },
+  { name: 'Teammitglied 3', role: 'Web-App & UI' },
+  { name: 'Teammitglied 4', role: 'Testumgebung & Evaluierung' },
 ]
 </script>

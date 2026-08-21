@@ -141,7 +141,7 @@ h1.wordmark{
 }
 .hero-strip .wrap{
   display:grid;
-  grid-template-columns:1.1fr 1px 1fr 1px 1fr;
+  grid-template-columns:1.5fr 1px 0.9fr 1px 0.75fr;
   gap:36px;
   padding:34px 40px 40px;
   align-items:start;
@@ -170,6 +170,16 @@ section{ padding:110px 0; border-top:1px solid var(--line); }
 h2.serif{ font-size:clamp(1.7rem, 3vw, 2.5rem); font-weight:500; max-width:16ch; margin-bottom:26px; }
 p{ color:var(--text-muted); max-width:62ch; margin-bottom:18px; font-size:0.98rem; }
 p strong{ color:var(--text); font-weight:600; }
+
+/* -- Variationen, damit nicht jede Section gleich aufgebaut ist -- */
+section.section--tight{ padding:76px 0; }
+section.section--wide{ padding:130px 0; }
+section.section--panel{ background:var(--panel); border-top:1px solid var(--line-strong); border-bottom:1px solid var(--line); }
+section.section--flush{ border-top:none; }
+
+/* Fortschritt bricht bewusst aus dem 220px-Label-Raster aus */
+.section-wide-grid{ display:grid; grid-template-columns:1fr; gap:30px; max-width:780px; }
+.section-wide-grid .eyebrow{ margin-bottom:6px; }
 
 .stat-list{ display:flex; gap:56px; flex-wrap:wrap; margin:38px 0 6px; border-top:1px solid var(--line); padding-top:28px; }
 .stat-list .num{ font-family:'Fraunces', serif; font-size:2.6rem; font-weight:500; color:var(--accent); line-height:1; }
