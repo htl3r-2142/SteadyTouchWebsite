@@ -1,37 +1,37 @@
 <template>
-  <section id="fortschritt" class="section--panel section--wide">
-    <div class="wrap">
-      <div class="section-wide-grid">
-        <span class="eyebrow">Fortschritt</span>
-        <h2 class="serif">Wo wir gerade stehen</h2>
+  <SectionBlock
+    id="fortschritt"
+    section-class="section--panel section--wide"
+    eyebrow="Fortschritt"
+    title="Wo wir gerade stehen"
+    wide
+  >
+    <div class="progress-top">
+      <span class="progress-pct">{{ progressPercent }}%</span>
+      <span class="progress-updated">{{ lastUpdated }}</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" :style="{ width: fillWidth + '%' }"></div>
+    </div>
 
-        <div class="progress-top">
-          <span class="progress-pct">{{ progressPercent }}%</span>
-          <span class="progress-updated">{{ lastUpdated }}</span>
-        </div>
-        <div class="progress-track">
-          <div class="progress-fill" :style="{ width: fillWidth + '%' }"></div>
-        </div>
-
-        <div class="timeline">
-          <div
-            v-for="m in milestones"
-            :key="m.label"
-            class="t-row"
-            :class="m.status"
-          >
-            <span class="t-dot"></span>
-            <span class="label">{{ m.label }}</span>
-            <span class="tag">{{ tagFor(m.status) }}</span>
-          </div>
-        </div>
+    <div class="timeline">
+      <div
+        v-for="m in milestones"
+        :key="m.label"
+        class="t-row"
+        :class="m.status"
+      >
+        <span class="t-dot"></span>
+        <span class="label">{{ m.label }}</span>
+        <span class="tag">{{ tagFor(m.status) }}</span>
       </div>
     </div>
-  </section>
+  </SectionBlock>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import SectionBlock from './SectionBlock.vue'
 
 // ====== HIER EINFACH ANPASSEN, WENN SICH DER FORTSCHRITT ÄNDERT ======
 const progressPercent = 15 // Zahl zwischen 0 und 100 ändern
