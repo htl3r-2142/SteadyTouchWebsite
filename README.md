@@ -36,3 +36,11 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### Run Unit Tests
+
+```sh
+npm test              # single run
+npm run test:watch    # watch mode
+npm run test:coverage # coverage report (text + coverage/index.html)
+```

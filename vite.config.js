@@ -7,4 +7,13 @@ import vue from '@vitejs/plugin-vue'
 export default defineConfig({
   plugins: [vue()],
   base: '/SteadyTouchWebsite/',
+  test: {
+    environment: 'jsdom',
+    include: ['src/**/*.spec.js'],
+    coverage: {
+      provider: 'v8',
+      include: ['src/**/*.{js,vue}'],
+      reporter: ['text', 'html'],
+    },
+  },
 })
