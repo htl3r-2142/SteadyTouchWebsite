@@ -47,8 +47,22 @@ const milestones = [
 ]
 // =======================================================================
 
+if (!Number.isFinite(progressPercent) || progressPercent < 0 || progressPercent > 100) {
+  throw new RangeError(`Fortschritt muss zwischen 0 und 100 liegen: ${progressPercent}`)
+}
+
+const statusTags = {
+  done: 'erledigt',
+  active: 'in arbeit',
+  open: 'offen',
+}
+
 function tagFor(status) {
-  return status === 'done' ? 'erledigt' : status === 'active' ? 'in arbeit' : 'offen'
+  if (!Object.hasOwn(statusTags, status)) {
+    throw new RangeError(`Unbekannter Meilenstein-Status: ${status}`)
+  }
+
+  return statusTags[status]
 }
 
 // Balken erst nach dem Einblenden der Seite animiert auffüllen
