@@ -6,7 +6,8 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  // BASE_URL kommt aus vite.config.js (base), sonst findet der Router auf GitHub Pages nichts
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 
