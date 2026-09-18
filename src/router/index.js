@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Startseite from '../views/Startseite.vue'
 import Kontakt from '../views/Kontakt.vue'
+import Impressum from '../views/Impressum.vue'
 
 const routes = [
   { path: '/', name: 'startseite', component: Startseite, meta: { title: 'Startseite' } },
-  { path: '/kontakt', name: 'kontakt', component: Kontakt, meta: { title: 'Kontakt' } }
+  { path: '/kontakt', name: 'kontakt', component: Kontakt, meta: { title: 'Kontakt' } },
+  { path: '/impressum', name: 'impressum', component: Impressum, meta: { title: 'Impressum' } }
 ]
 
 const router = createRouter({

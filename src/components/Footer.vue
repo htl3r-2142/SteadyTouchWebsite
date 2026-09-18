@@ -20,6 +20,13 @@ const jahr = new Date().getFullYear()
           <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
         </ul>
       </nav>
+
+      <nav aria-label="Rechtliches">
+        <h2>Rechtliches</h2>
+        <ul>
+          <li><RouterLink to="/impressum">Impressum</RouterLink></li>
+        </ul>
+      </nav>
     </div>
 
     <div class="container">
