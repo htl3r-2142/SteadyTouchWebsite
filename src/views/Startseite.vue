@@ -1,5 +1,6 @@
 <script setup>
 import trackingHand from '../assets/tracking_hand.png'
+import { instagram } from '../data/social.js'
 
 // Fortschritt der Diplomarbeit in Prozent - hier einfach anpassen
 const fortschritt = 30
@@ -90,6 +91,10 @@ const fortschritt = 30
         >
           <div class="balken-fuellung" :style="{ width: fortschritt + '%' }"></div>
         </div>
+
+        <p class="updates">
+          Updates zum Projekt gibt's auf <a :href="instagram.url">Instagram</a>.
+        </p>
       </div>
     </div>
   </section>
@@ -213,6 +218,19 @@ h2 {
   color: var(--gruen);
   font-size: 2.4rem;
   font-weight: 800;
+}
+
+.updates {
+  margin: 20px 0 0;
+}
+
+.updates a {
+  color: var(--gruen);
+  font-weight: 600;
+}
+
+.updates a:hover {
+  color: var(--dunkelblau);
 }
 
 .balken {

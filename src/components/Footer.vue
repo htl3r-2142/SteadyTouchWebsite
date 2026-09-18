@@ -1,4 +1,6 @@
 <script setup>
+import SocialLinks from './SocialLinks.vue'
+
 const jahr = new Date().getFullYear()
 </script>
 
@@ -27,6 +29,11 @@ const jahr = new Date().getFullYear()
           <li><RouterLink to="/impressum">Impressum</RouterLink></li>
         </ul>
       </nav>
+
+      <div>
+        <h2>Folgt uns</h2>
+        <SocialLinks />
+      </div>
     </div>
 
     <div class="container">
