@@ -17,6 +17,7 @@ const jahr = new Date().getFullYear()
         <h2>Projekt</h2>
         <ul>
           <li><RouterLink to="/">Startseite</RouterLink></li>
+          <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
         </ul>
       </nav>
     </div>

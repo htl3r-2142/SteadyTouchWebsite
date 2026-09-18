@@ -13,6 +13,7 @@ import logo from '../assets/logo.png'
       <nav aria-label="Hauptnavigation">
         <ul>
           <li><RouterLink to="/">Startseite</RouterLink></li>
+          <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
         </ul>
       </nav>
     </div>
@@ -20,7 +21,12 @@ import logo from '../assets/logo.png'
 </template>
 
 <style scoped>
+/* Header bleibt beim Scrollen oben stehen */
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--weiss);
   border-bottom: 1px solid var(--grau);
 }
 
@@ -28,8 +34,9 @@ import logo from '../assets/logo.png'
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   min-height: 80px;
-  gap: 16px;
+  gap: 8px 16px;
 }
 
 .marke {
@@ -64,5 +71,12 @@ nav a:hover {
 nav a[aria-current='page'] {
   font-weight: 600;
   border-bottom-color: var(--gruen);
+}
+
+/* Handy: Links etwas enger zusammen */
+@media (max-width: 500px) {
+  nav ul {
+    gap: 20px;
+  }
 }
 </style>
