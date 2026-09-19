@@ -7,7 +7,7 @@ export const social = [
   },
   {
     name: 'Facebook',
-    url: '' // TODO: Link kommt noch
+    url: 'https://www.facebook.com/profile.php?id=61594114487571' 
   }
 ]
 
