@@ -1,6 +1,6 @@
 <script setup>
 import trackingHand from '../assets/tracking_hand.png'
-import { instagram } from '../data/social.js'
+import { instagram, facebook } from '../data/social.js'
 
 // Fortschritt der Diplomarbeit in Prozent - hier einfach anpassen
 const fortschritt = 30
@@ -93,7 +93,8 @@ const fortschritt = 30
         </div>
 
         <p class="updates">
-          Updates zum Projekt gibt's auf <a :href="instagram.url">Instagram</a>.
+          Updates gibt's auf <a :href="instagram.url">Instagram</a> und
+          <a :href="facebook.url">Facebook</a>.
         </p>
       </div>
     </div>

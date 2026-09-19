@@ -32,7 +32,7 @@ const jahr = new Date().getFullYear()
 
       <div>
         <h2>Folgt uns</h2>
-        <SocialLinks />
+        <SocialLinks spalte />
       </div>
     </div>
 

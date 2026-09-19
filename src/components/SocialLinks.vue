@@ -1,12 +1,17 @@
 <script setup>
 import { social } from '../data/social.js'
 
+// spalte = Links untereinander statt nebeneinander
+defineProps({
+  spalte: Boolean
+})
+
 // nur Profile anzeigen, bei denen schon ein Link eingetragen ist
 const links = social.filter((s) => s.url)
 </script>
 
 <template>
-  <ul class="social">
+  <ul class="social" :class="{ spalte: spalte }">
     <li v-for="link in links" :key="link.name">
       <a :href="link.url">
         <!-- Instagram Icon -->
@@ -36,6 +41,11 @@ const links = social.filter((s) => s.url)
   display: flex;
   flex-wrap: wrap;
   gap: 8px 24px;
+}
+
+.spalte {
+  flex-direction: column;
+  gap: 0;
 }
 
 /* große Klickfläche (mind. 44px), damit man den Link auch mit zittriger Hand trifft */

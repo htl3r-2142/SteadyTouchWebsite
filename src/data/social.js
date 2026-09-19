@@ -12,3 +12,4 @@ export const social = [
 ]
 
 export const instagram = social.find((s) => s.name === 'Instagram')
+export const facebook = social.find((s) => s.name === 'Facebook')
