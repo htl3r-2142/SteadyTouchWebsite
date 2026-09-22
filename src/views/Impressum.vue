@@ -13,6 +13,14 @@ import { team } from '../data/team.js'
     </ul>
     <!-- Wohnort vom Medieninhaber, reicht als Ort (keine genaue Adresse nötig) -->
     <p>Wohnort: Wien, Österreich</p>
+    <h2>Diplomarbeitsprojekt im Rahmen der:</h2>
+    <p>
+      HTL Rennweg<br />
+      Rennweg 89b<br />
+      1030 Wien<br />
+      Österreich
+    </p>
+
 
     <h2>Kontakt</h2>
     <ul>

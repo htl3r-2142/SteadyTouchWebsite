@@ -37,8 +37,7 @@ const fortschritt = 30
     <div class="container">
       <h2 id="idee">Unsere Idee</h2>
       <p>
-        Bei einem Accessibility Workshop mit Stefan Barac und Claudio Zeni von Incluthon ist uns
-        klar geworden, dass Barrierefreiheit trotz technischem Fortschritt oft viel zu wenig
+        Bei einem Accessibility-Workshop von Incluthon an unserer Schule sowie im Medientechnikunterricht wurde uns klar, dass Barrierefreiheit trotz technischem Fortschritt oft viel zu wenig
         beachtet wird.
       </p>
 
