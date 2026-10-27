@@ -25,7 +25,7 @@ export const team = [
     rollen: ['Mitarbeiter', 'Backend'],
     email: 'alessandro.tervit@htl.rennweg.at',
     bild: fotoAlessandro,
-    bildPosition: 'center 8%'
+    bildPosition: 'center'
   }
 ]
 
