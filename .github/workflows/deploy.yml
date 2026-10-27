@@ -29,8 +29,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # auf GitHub Pages liegt die Seite unter /SteadyTouchWebsite/
       - name: Build
-        run: npm run build
+        run: npm run build -- --base=/SteadyTouchWebsite/
 
       # GitHub Pages kennt keine Vue Routen, darum bei 404 auch die index.html ausliefern
       - name: 404 Seite fuer Vue Router

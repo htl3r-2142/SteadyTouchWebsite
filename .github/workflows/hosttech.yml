@@ -1,0 +1,45 @@
+name: Build fuer Hosttech
+
+# Plesk bei Hosttech kann kein "npm run build" ausführen.
+# Darum baut GitHub die Seite und legt das Ergebnis (dist) in den Branch "hosttech".
+# In Plesk ist der Branch "hosttech" eingestellt, der wird dann nach /httpdocs kopiert.
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: dist in den Branch hosttech pushen
+        run: |
+          cd dist
+          git init -b hosttech
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Build von ${GITHUB_SHA::7}"
+          git push --force "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" hosttech
