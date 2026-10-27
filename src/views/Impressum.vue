@@ -56,14 +56,14 @@ import { team } from '../data/team.js'
 }
 
 h1 {
-  color: var(--gruen);
-  font-size: 2.6rem;
+  color: var(--blau);
+  font-size: 3rem;
   font-weight: 800;
   margin: 0 0 8px;
 }
 
 h2 {
-  color: var(--gruen);
+  color: var(--blau);
   font-size: 1.3rem;
   margin: 40px 0 8px;
 }
@@ -83,8 +83,12 @@ a {
   overflow-wrap: anywhere;
 }
 
+a {
+  color: var(--blau);
+}
+
 a:hover {
-  color: var(--gruen);
+  color: var(--dunkelblau);
 }
 
 @media (max-width: 800px) {

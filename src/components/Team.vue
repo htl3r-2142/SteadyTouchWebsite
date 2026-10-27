@@ -38,21 +38,21 @@ const emailDomain = computed(() => props.email.split('@')[1])
 /* eine Person = eine Reihe: Foto links, Infos rechts */
 .team-karte {
   display: flex;
-  gap: 28px;
+  gap: 32px;
   align-items: stretch;
-  border: 2px solid var(--gruen);
-  border-radius: 10px;
-  padding: 20px;
+  background-color: var(--flaeche);
+  border-radius: 24px;
+  padding: 24px;
 }
 
 .foto {
-  width: 140px;
+  width: 150px;
   flex-shrink: 0;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   /* eher oben ausschneiden, damit der Kopf nicht abgeschnitten wird */
   object-position: center 25%;
-  border-radius: 8px;
+  border-radius: 16px;
 }
 
 .platzhalter {
@@ -64,11 +64,13 @@ const emailDomain = computed(() => props.email.split('@')[1])
   flex-direction: column;
   flex: 1;
   min-width: 0;
+  padding-top: 4px;
 }
 
 h2 {
-  color: var(--gruen);
-  font-size: 1.3rem;
+  color: var(--blau);
+  font-size: 1.5rem;
+  font-weight: 800;
   margin: 0 0 8px;
 }
 
@@ -85,11 +87,14 @@ p:last-of-type {
 /* E-Mail immer ganz unten, mit Linie darüber */
 .email {
   margin-top: auto;
-  padding-top: 12px;
-  border-top: 1px solid var(--grau);
+  padding-top: 14px;
+  border-top: 2px solid var(--hintergrund);
   display: flex;
   align-items: center;
   gap: 8px;
+  min-height: 44px;
+  color: var(--blau);
+  font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
   overflow-wrap: anywhere;
@@ -97,23 +102,30 @@ p:last-of-type {
 
 .email svg {
   flex-shrink: 0;
-  color: var(--gruen);
 }
 
 .email span {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .email:hover span {
-  color: var(--gruen);
+  color: var(--dunkelblau);
 }
 
 /* Handy: Foto über den Infos */
-@media (max-width: 500px) {
+@media (max-width: 560px) {
   .team-karte {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 20px;
+    padding: 24px 20px 16px;
+    border-radius: 18px;
+  }
+
+  .foto {
+    width: 160px;
   }
 
   .info {

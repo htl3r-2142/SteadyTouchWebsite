@@ -1,17 +1,12 @@
 <script setup>
 import { social } from '../data/social.js'
 
-// spalte = Links untereinander statt nebeneinander
-defineProps({
-  spalte: Boolean
-})
-
 // nur Profile anzeigen, bei denen schon ein Link eingetragen ist
 const links = social.filter((s) => s.url)
 </script>
 
 <template>
-  <ul class="social" :class="{ spalte: spalte }">
+  <ul class="social">
     <li v-for="link in links" :key="link.name">
       <a :href="link.url">
         <!-- Instagram Icon -->
@@ -20,7 +15,7 @@ const links = social.filter((s) => s.url)
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
           <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
         </svg>
-        
+
         <!-- Facebook Icon -->
         <svg v-if="link.name === 'Facebook'" aria-hidden="true" viewBox="0 0 24 24" width="24" height="24">
           <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
@@ -43,11 +38,6 @@ const links = social.filter((s) => s.url)
   gap: 8px 24px;
 }
 
-.spalte {
-  flex-direction: column;
-  gap: 0;
-}
-
 /* große Klickfläche (mind. 44px), damit man den Link auch mit zittriger Hand trifft */
 a {
   display: inline-flex;
@@ -56,7 +46,8 @@ a {
   min-height: 44px;
   padding: 0 4px;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 svg {

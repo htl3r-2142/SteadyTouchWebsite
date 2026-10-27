@@ -1,18 +1,20 @@
 :root {
-  --dunkelblau: #0d1b2a;
-  --gruen: #3a5a4c;
-  --hellblau: #6ea8fe;
-  --text: #1a1a1a;
-  --text-hell: #4a4a4a;
-  --grau: #e4e4e4;
-  --blau-hintergrund: #eef4fc;
+  /* Farben aus unserem Design */
+  --blau: #1e4a8d;
+  --dunkelblau: #0d2031;
+  --hellblau: #8db4f5;
+  --flaeche: #deeaf4;
+  --hintergrund: #f5f8fb;
+  --text: #13202e;
+  --text-hell: #3f4b58;
+  --grau: #d3dde7;
   --weiss: #ffffff;
 
   font-family: 'Figtree', Arial, sans-serif;
   font-size: 18px;
   line-height: 1.6;
   color: var(--text);
-  background-color: var(--weiss);
+  background-color: var(--hintergrund);
 }
 
 * {
@@ -47,7 +49,7 @@ img {
 
 /* gut sichtbarer Fokus für Tastaturbenutzer */
 :focus-visible {
-  outline: 3px solid var(--hellblau);
+  outline: 3px solid var(--blau);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -56,6 +58,13 @@ img {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+/* Handy: etwas weniger Rand links und rechts */
+@media (max-width: 500px) {
+  .container {
+    padding: 0 18px;
+  }
 }
 
 .skip-link {
@@ -73,6 +82,11 @@ img {
 
 .skip-link:focus {
   top: 16px;
+}
+
+/* auf dunklem Hintergrund (Footer, dunkle Abschnitte) einen hellen Fokusrahmen */
+.dunkel :focus-visible {
+  outline-color: var(--hellblau);
 }
 
 /* Animationen ausschalten, wenn der Benutzer das im System eingestellt hat */

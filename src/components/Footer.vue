@@ -1,13 +1,16 @@
 <script setup>
-import SocialLinks from './SocialLinks.vue'
+import { social } from '../data/social.js'
 
 const jahr = new Date().getFullYear()
+
+// nur Profile mit Link anzeigen
+const socialLinks = social.filter((s) => s.url)
 </script>
 
 <template>
-  <footer class="footer">
+  <footer class="footer dunkel">
     <div class="container spalten">
-      <div>
+      <div class="info">
         <h2>SteadyTouch</h2>
         <p>
           Assistive Gestensteuerung zur Stabilisierung von Handbewegungen für Menschen mit motorischen Einschränkungen.<br>
@@ -19,20 +22,24 @@ const jahr = new Date().getFullYear()
         <h2>Projekt</h2>
         <ul>
           <li><RouterLink to="/">Startseite</RouterLink></li>
-          <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
         </ul>
       </nav>
 
       <nav aria-label="Rechtliches">
         <h2>Rechtliches</h2>
         <ul>
+          <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
           <li><RouterLink to="/impressum">Impressum</RouterLink></li>
         </ul>
       </nav>
 
       <div>
-        <h2>Folgt uns</h2>
-        <SocialLinks spalte />
+        <h2>Social Media</h2>
+        <ul>
+          <li v-for="link in socialLinks" :key="link.name">
+            <a :href="link.url">{{ link.name }}</a>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -45,40 +52,44 @@ const jahr = new Date().getFullYear()
 <style scoped>
 .footer {
   background-color: var(--dunkelblau);
-  color: var(--weiss);
-  padding-top: 48px;
+  color: var(--hintergrund);
+  padding-top: 56px;
   margin-top: 64px;
 }
 
+/* 4 Spalten, die erste ist breiter */
 .spalten {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
 }
 
-.spalten > div {
+.info {
   max-width: 400px;
 }
 
 h2 {
-  font-size: 1rem;
-  margin: 0 0 12px;
+  color: var(--weiss);
+  font-size: 1.05rem;
+  margin: 0 0 14px;
 }
 
 p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 0.9rem;
 }
 
-a {
+/* genug Abstand, damit man die Links gut trifft */
+li a {
+  display: inline-block;
+  padding: 4px 0;
+  font-size: 0.95rem;
   text-decoration: none;
 }
 
@@ -87,10 +98,29 @@ a:hover {
 }
 
 .copyright {
-  border-top: 1px solid #5a6b7c;
-  margin-top: 40px;
+  border-top: 1px solid #4a5a6b;
+  margin-top: 48px;
   padding: 20px 0;
   text-align: center;
   font-size: 0.85rem;
+}
+
+/* Tablet: 2 Spalten */
+@media (max-width: 800px) {
+  .spalten {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .info {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Handy: alles untereinander */
+@media (max-width: 450px) {
+  .spalten {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

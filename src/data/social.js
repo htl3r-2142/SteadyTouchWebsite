@@ -1,4 +1,4 @@
-// Unsere Social Media Profile, werden im Footer, auf der Kontaktseite und auf der Startseite verwendet
+// Unsere Social Media Profile, werden im Footer und in der "Folgt uns" Box verwendet
 // Links ohne url werden nicht angezeigt
 export const social = [
   {
@@ -7,9 +7,6 @@ export const social = [
   },
   {
     name: 'Facebook',
-    url: 'https://www.facebook.com/profile.php?id=61594114487571' 
+    url: 'https://www.facebook.com/profile.php?id=61594114487571'
   }
 ]
-
-export const instagram = social.find((s) => s.name === 'Instagram')
-export const facebook = social.find((s) => s.name === 'Facebook')

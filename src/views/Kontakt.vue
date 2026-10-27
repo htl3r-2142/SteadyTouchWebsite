@@ -1,6 +1,6 @@
 <script setup>
 import Team from '../components/Team.vue'
-import SocialLinks from '../components/SocialLinks.vue'
+import FolgtUns from '../components/FolgtUns.vue'
 import { team } from '../data/team.js'
 </script>
 
@@ -23,21 +23,19 @@ import { team } from '../data/team.js'
       />
     </ul>
 
-    <h2 class="social-titel">Folgt uns</h2>
-    <p>Neuigkeiten und Einblicke in unser Projekt findet ihr auch auf Social Media.</p>
-    <SocialLinks class="social-kontakt" />
+    <FolgtUns class="folgt-uns" />
   </section>
 </template>
 
 <style scoped>
 .kontakt {
-  padding-top: 64px;
+  padding-top: 72px;
   padding-bottom: 32px;
 }
 
 h1 {
-  color: var(--gruen);
-  font-size: 2.6rem;
+  color: var(--blau);
+  font-size: 3rem;
   font-weight: 800;
   margin: 0 0 16px;
 }
@@ -47,17 +45,6 @@ h1 {
   margin: 0 0 48px;
 }
 
-.social-titel {
-  color: var(--gruen);
-  font-size: 1.6rem;
-  margin: 64px 0 8px;
-}
-
-.social-kontakt {
-  margin-top: 8px;
-  color: var(--gruen);
-}
-
 .team {
   list-style: none;
   margin: 0;
@@ -65,7 +52,13 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 700px;
+  max-width: 760px;
+}
+
+/* gleich breit wie die Teamkarten */
+.folgt-uns {
+  margin-top: 64px;
+  max-width: 760px;
 }
 
 @media (max-width: 800px) {
@@ -74,7 +67,15 @@ h1 {
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
+  }
+
+  .einleitung {
+    margin-bottom: 32px;
+  }
+
+  .folgt-uns {
+    margin-top: 48px;
   }
 }
 </style>

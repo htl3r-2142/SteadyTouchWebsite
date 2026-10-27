@@ -1,6 +1,6 @@
 <script setup>
-import trackingHand from '../assets/tracking_hand.png'
-import { instagram, facebook } from '../data/social.js'
+import logo from '../assets/logo.png'
+import FolgtUns from '../components/FolgtUns.vue'
 
 // Fortschritt der Diplomarbeit in Prozent - hier einfach anpassen
 const fortschritt = 30
@@ -12,137 +12,143 @@ const fortschritt = 30
     <div class="container hero-inhalt">
       <div class="hero-text">
         <h1 id="titel">SteadyTouch</h1>
-        <p class="slogan">
-          Technologie, die Bewegung versteht.
-        </p>
-        <p>
+        <p class="slogan">Technologie, die Bewegung versteht.</p>
+        <p class="hero-beschreibung">
           SteadyTouch erkennt Handgesten per Kamera, filtert ungewolltes Zittern heraus und macht
           daraus einen stabilen, verlässlichen Input für Menschen mit Parkinson, MS, Zerebralparese
           oder altersbedingten Einschränkungen.
         </p>
       </div>
 
-      <img
-        class="hero-bild"
-        :src="trackingHand"
-        alt="Skizze einer erkannten Hand: blaue Punkte an den Fingergelenken, verbunden mit Linien"
-        width="1254"
-        height="1254"
-      />
+      <!-- Logo ist nur Deko, der Name steht schon in der Überschrift -->
+      <img class="hero-logo" :src="logo" alt="" width="2048" height="2048" />
     </div>
   </section>
 
-  <!-- Idee  -->
-  <section class="abschnitt abschnitt-hell" aria-labelledby="idee">
+  <section aria-labelledby="was-ist">
     <div class="container">
-      <h2 id="idee">Unsere Idee</h2>
-      <p>
-        Bei einem Accessibility-Workshop von Incluthon an unserer Schule sowie im Medientechnikunterricht wurde uns klar, dass Barrierefreiheit trotz technischem Fortschritt oft viel zu wenig
-        beachtet wird.
-      </p>
-
-      <!-- große Zahl links, Text rechts. Wird trotzdem als ein Satz vorgelesen -->
-      <p class="statistik">
-        <span class="zahl"><span class="zahl-klein">Etwa</span> 14&nbsp;%</span>
-        <span class="zahl-text">
-          der österreichischen Bevölkerung haben motorische Einschränkungen, zum Beispiel durch
-          Parkinson, MS, Zerebralparese, Schlaganfälle, Unfallverletzungen oder einfach durch das
-          Alter. Für diese Menschen ist das Bedienen von Handys und Computern oft schwierig, obwohl
-          man heute im Alltag kaum mehr ohne auskommt.
-        </span>
-      </p>
+      <h2 id="was-ist" class="was-ist">Doch was ist SteadyTouch überhaupt?</h2>
     </div>
-  </section>
 
-  <!-- Ziel  -->
-  <section class="abschnitt abschnitt-dunkel" aria-labelledby="ziel">
-    <div class="container">
-      <h2 id="ziel">Unser Ziel</h2>
-      <p class="ziel-satz">Unser Ziel ist es, digitale Interaktion zugänglicher zu machen.</p>
-      <p>
-        SteadyTouch soll die herkömmliche Maus durch eine intuitive Gestensteuerung ersetzen, bei
-        der Handbewegungen erkannt und ungewollte Zitterbewegungen herausgefiltert werden. In
-        unserem Übungsbereich können die Gesten zunächst sicher erlernt und anschließend direkt mit
-        selbst entwickelten Beispiel-Apps ausprobiert werden. So können Nutzer:innen die
-        Funktionsweise von SteadyTouch kennenlernen und die Gestensteuerung praxisnah erleben.
-      </p>
-    </div>
-  </section>
-
-  <!-- Fortschritt -->
-  <section class="abschnitt" aria-labelledby="fortschritt-titel">
-    <div class="container">
-      <div class="fortschritt-karte">
-        <h2 id="fortschritt-titel">Projektfortschritt</h2>
-        <p id="fortschritt-text">
-          Unser Fortschritt liegt bei etwa
-          <span class="prozent">{{ fortschritt }}&nbsp;%</span>.
+    <!-- Idee (hellblauer Streifen) -->
+    <div class="abschnitt abschnitt-hell">
+      <div class="container">
+        <h3>Unsere Idee</h3>
+        <p>
+          Bei einem Accessibility-Workshop von Incluthon an unserer Schule sowie im Medientechnikunterricht wurde uns klar, dass Barrierefreiheit trotz technischem Fortschritt oft viel zu wenig
+          beachtet wird.
         </p>
 
-        <div
-          class="balken"
-          role="progressbar"
-          :aria-valuenow="fortschritt"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-labelledby="fortschritt-titel"
-          aria-describedby="fortschritt-text"
-        >
-          <div class="balken-fuellung" :style="{ width: fortschritt + '%' }"></div>
-        </div>
+        <!-- große Zahl links, Text rechts. Wird trotzdem als ein Satz vorgelesen -->
+        <p class="statistik">
+          <span class="zahl"><span class="zahl-klein">etwa</span> 14&nbsp;%</span>
+          <span class="zahl-text">
+            der österreichischen Bevölkerung haben motorische Einschränkungen, zum Beispiel durch
+            Parkinson, MS, Zerebralparese, Schlaganfälle, Unfallverletzungen oder einfach durch das
+            Alter. Für diese Menschen ist das Bedienen von Handys und Computern oft schwierig, obwohl
+            man heute im Alltag kaum mehr ohne auskommt.
+          </span>
+        </p>
+      </div>
+    </div>
 
-        <p class="updates">
-          Updates gibt's auf <a :href="instagram.url">Instagram</a> und
-          <a :href="facebook.url">Facebook</a>.
+    <!-- Ziel (dunkler Streifen) -->
+    <div class="abschnitt abschnitt-dunkel dunkel">
+      <div class="container">
+        <h3>Unser Ziel</h3>
+        <p class="ziel-satz">Unser Ziel ist es, digitale Interaktion zugänglicher zu machen.</p>
+        <p>
+          SteadyTouch soll die herkömmliche Maus durch eine intuitive Gestensteuerung ersetzen, bei
+          der Handbewegungen erkannt und ungewollte Zitterbewegungen herausgefiltert werden. In
+          unserem Übungsbereich können die Gesten zunächst sicher erlernt und anschließend direkt mit
+          selbst entwickelten Beispiel-Apps ausprobiert werden. So können Nutzer:innen die
+          Funktionsweise von SteadyTouch kennenlernen und die Gestensteuerung praxisnah erleben.
         </p>
       </div>
     </div>
   </section>
+
+  <!-- Fortschritt + Social Media -->
+  <div class="container karten">
+    <section class="fortschritt-karte" aria-labelledby="fortschritt-titel">
+      <h2 id="fortschritt-titel">Projektfortschritt</h2>
+      <p id="fortschritt-text">
+        Unser Fortschritt liegt bei etwa
+        <span class="prozent">{{ fortschritt }}&nbsp;%</span>.
+      </p>
+
+      <div
+        class="balken"
+        role="progressbar"
+        :aria-valuenow="fortschritt"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-labelledby="fortschritt-titel"
+        aria-describedby="fortschritt-text"
+      >
+        <div class="balken-fuellung" :style="{ width: fortschritt + '%' }"></div>
+      </div>
+    </section>
+
+    <FolgtUns />
+  </div>
 </template>
 
 <style scoped>
+/* Hero */
 .hero-inhalt {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 40px;
   align-items: center;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 96px;
+  padding-bottom: 112px;
 }
 
 h1 {
-  color: var(--gruen);
-  font-size: 3.2rem;
+  color: var(--blau);
+  font-size: 3.8rem;
   font-weight: 800;
-  margin: 0 0 8px;
+  line-height: 1.05;
+  margin: 0 0 12px;
 }
 
 .slogan {
-  font-size: 1.6rem;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 32px;
+  color: var(--dunkelblau);
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0;
+  /* hellblaue Linie unter dem Slogan */
+  padding-bottom: 24px;
+  border-bottom: 3px solid var(--flaeche);
 }
 
-.hero-text p:last-child {
-  color: var(--text-hell);
+.hero-beschreibung {
+  margin: 24px 0 0;
+  max-width: 60ch;
 }
 
-/* hellblauer Kreis hinter der Hand (Bild ist transparent) */
-.hero-bild {
+.hero-logo {
   width: 100%;
-  max-width: 440px;
+  max-width: 380px;
   height: auto;
   justify-self: center;
-  background-color: var(--blau-hintergrund);
-  border-radius: 50%;
-  padding: 32px;
 }
 
-/* Abschnitte gehen über die ganze Breite, damit man die Farben sieht */
+/* Überschrift über den Streifen */
+.was-ist {
+  color: var(--dunkelblau);
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 0;
+  padding-bottom: 40px;
+}
+
+/* Streifen über die ganze Breite */
 .abschnitt {
   padding-top: 64px;
-  padding-bottom: 64px;
+  padding-bottom: 72px;
 }
 
 .abschnitt p {
@@ -150,7 +156,7 @@ h1 {
 }
 
 .abschnitt-hell {
-  background-color: var(--blau-hintergrund);
+  background-color: var(--flaeche);
 }
 
 .abschnitt-dunkel {
@@ -158,113 +164,132 @@ h1 {
   color: var(--weiss);
 }
 
-h2 {
-  font-size: 1.8rem;
-  color: var(--gruen);
-  margin: 0 0 16px;
+h3 {
+  color: var(--blau);
+  font-size: 2.1rem;
+  font-weight: 800;
+  margin: 0 0 32px;
 }
 
-.abschnitt-dunkel h2 {
-  color: var(--hellblau);
+.abschnitt-dunkel h3 {
+  color: var(--weiss);
+  margin-bottom: 20px;
+}
+
+.ziel-satz {
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.4;
+  margin: 0 0 16px;
 }
 
 /* 14 % Box */
 .statistik {
   display: flex;
   align-items: center;
-  gap: 32px;
-  margin: 32px 0 0;
-  padding: 24px 28px;
-  background-color: var(--weiss);
-  border-left: 6px solid var(--gruen);
-  border-radius: 8px;
+  gap: 56px;
+  margin: 48px 0 0;
+  padding: 36px 32px 36px 64px;
+  background-color: var(--hintergrund);
+  border-left: 6px solid var(--blau);
+  border-radius: 24px;
 }
 
 .abschnitt .statistik {
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .zahl {
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  color: var(--gruen);
-  font-size: 3.4rem;
+  color: var(--blau);
+  font-size: 2.6rem;
   font-weight: 800;
   line-height: 1;
 }
 
 .zahl-klein {
   font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
-.ziel-satz {
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.4;
+/* Karten unten */
+.karten {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 64px;
+}
+
+.fortschritt-karte {
+  background-color: var(--flaeche);
+  border-radius: 24px;
+  padding: 28px 40px 36px;
+}
+
+.fortschritt-karte h2 {
+  color: var(--blau);
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+
+.fortschritt-karte p {
   margin: 0 0 16px;
 }
 
-/* Fortschritt */
-.fortschritt-karte {
-  background-color: var(--blau-hintergrund);
-  border-radius: 12px;
-  padding: 32px;
-}
-
 .prozent {
-  color: var(--gruen);
-  font-size: 2.4rem;
+  color: var(--blau);
+  font-size: 2.2rem;
   font-weight: 800;
-}
-
-.updates {
-  margin: 20px 0 0;
-}
-
-.updates a {
-  color: var(--gruen);
-  font-weight: 600;
-}
-
-.updates a:hover {
-  color: var(--dunkelblau);
 }
 
 .balken {
   height: 28px;
-  background-color: var(--weiss);
+  background-color: var(--hintergrund);
   border-radius: 14px;
   overflow: hidden;
-  border: 2px solid var(--dunkelblau);
+  border: 2px solid var(--blau);
 }
 
 .balken-fuellung {
   height: 100%;
-  background-color: var(--dunkelblau);
+  background-color: var(--blau);
   transition: width 0.6s ease;
 }
 
-/* Handy / kleine Bildschirme */
+/* Tablet und Handy */
 @media (max-width: 800px) {
   .hero-inhalt {
     grid-template-columns: 1fr;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    gap: 32px;
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  /* Logo am Handy oben, kleiner */
+  .hero-logo {
+    order: -1;
+    max-width: 160px;
   }
 
   h1 {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
   }
 
   .slogan {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
-  .hero-bild {
-    max-width: 300px;
+  .was-ist,
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  h3 {
+    margin-bottom: 20px;
   }
 
   .abschnitt {
@@ -275,12 +300,24 @@ h2 {
   .statistik {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    padding: 20px;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 24px 20px 24px 24px;
+    border-radius: 18px;
+  }
+
+  .karten {
+    padding-top: 48px;
+    gap: 24px;
   }
 
   .fortschritt-karte {
-    padding: 24px 20px;
+    padding: 24px 20px 28px;
+    border-radius: 18px;
+  }
+
+  .fortschritt-karte h2 {
+    font-size: 1.6rem;
   }
 }
 </style>
