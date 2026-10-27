@@ -1,7 +1,12 @@
-# Für den Vue Router: alle Adressen, die keine echte Datei sind (z.B. /kontakt),
-# bekommen die index.html. Sonst gibt der Server beim Neuladen einen 404 Fehler.
 RewriteEngine On
 RewriteBase /
+
+# www.steadytouch.at -> steadytouch.at (damit Google die Seite nicht doppelt findet)
+RewriteCond %{HTTP_HOST} ^www\.steadytouch\.at$ [NC]
+RewriteRule ^(.*)$ https://steadytouch.at/$1 [R=301,L]
+
+# Für den Vue Router: alle Adressen, die keine echte Datei sind (z.B. /kontakt),
+# bekommen die index.html. Sonst gibt der Server beim Neuladen einen 404 Fehler.
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
