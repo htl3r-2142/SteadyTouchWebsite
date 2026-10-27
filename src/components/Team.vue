@@ -5,7 +5,11 @@ const props = defineProps({
   name: String,
   rollen: Array,
   email: String,
-  bild: String
+  bild: String,
+  bildPosition: {
+    type: String,
+    default: 'center 25%'
+  }
 })
 
 // E-Mail beim @ teilen, damit sie nur dort umbricht und nicht mitten im Wort
@@ -15,125 +19,95 @@ const emailDomain = computed(() => props.email.split('@')[1])
 
 <template>
   <li class="team-karte">
-    <img v-if="bild" :src="bild" :alt="'Foto von ' + name" class="foto" />
-    <!-- solange wir noch keine Fotos haben -->
+    <img
+      v-if="bild"
+      :src="bild"
+      :alt="'Foto von ' + name"
+      class="foto"
+      :style="{ objectPosition: bildPosition }"
+    />
+    <!-- falls noch kein Foto da ist -->
     <div v-else class="foto platzhalter" aria-hidden="true"></div>
 
-    <div class="info">
-      <h2>{{ name }}</h2>
-      <p v-for="rolle in rollen" :key="rolle">{{ rolle }}</p>
+    <h3>{{ name }}</h3>
+    <p class="rollen">
+      <span v-for="rolle in rollen" :key="rolle">{{ rolle }}</span>
+    </p>
 
-      <a :href="'mailto:' + email" class="email">
-        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20">
-          <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
-          <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" />
-        </svg>
-        <span>{{ emailName }}<wbr />@{{ emailDomain }}</span>
-      </a>
-    </div>
+    <a :href="'mailto:' + email" class="email">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18">
+        <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" />
+        <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.8" />
+      </svg>
+      <span>{{ emailName }}<wbr />@{{ emailDomain }}</span>
+    </a>
   </li>
 </template>
 
 <style scoped>
-/* eine Person = eine Reihe: Foto links, Infos rechts */
 .team-karte {
   display: flex;
-  gap: 32px;
-  align-items: stretch;
-  background-color: var(--flaeche);
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--hintergrund);
   border-radius: 24px;
-  padding: 24px;
+  padding: 24px 18px 12px;
 }
 
+/* rundes Foto */
 .foto {
-  width: 150px;
-  flex-shrink: 0;
-  aspect-ratio: 4 / 5;
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  /* eher oben ausschneiden, damit der Kopf nicht abgeschnitten wird */
-  object-position: center 25%;
-  border-radius: 16px;
+  border-radius: 50%;
+  /* hellblauer Ring, damit man den Kreis auch bei weißem Fotohintergrund sieht */
+  border: 4px solid var(--flaeche);
 }
 
 .platzhalter {
   background-color: var(--grau);
 }
 
-.info {
+h3 {
+  width: 100%;
+  color: var(--blau);
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 24px 0 0;
+  padding-top: 20px;
+  border-top: 2px solid var(--flaeche);
+}
+
+.rollen {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-width: 0;
-  padding-top: 4px;
-}
-
-h2 {
-  color: var(--blau);
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin: 0 0 8px;
-}
-
-p {
-  margin: 0;
-  color: var(--text-hell);
-}
-
-/* Abstand zwischen Rollen und Linie */
-p:last-of-type {
-  margin-bottom: 16px;
+  margin: 12px 0 20px;
+  line-height: 1.45;
 }
 
 /* E-Mail immer ganz unten, mit Linie darüber */
 .email {
+  width: 100%;
   margin-top: auto;
-  padding-top: 14px;
-  border-top: 2px solid var(--hintergrund);
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding: 12px 0;
+  border-top: 2px solid var(--flaeche);
   min-height: 44px;
-  color: var(--blau);
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   text-decoration: none;
   overflow-wrap: anywhere;
 }
 
+/* Icon steht direkt vor dem Text, auch wenn die Adresse umbricht */
 .email svg {
-  flex-shrink: 0;
-}
-
-.email span {
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  vertical-align: -4px;
+  margin-right: 6px;
+  color: var(--text-hell);
 }
 
 .email:hover span {
-  color: var(--dunkelblau);
-}
-
-/* Handy: Foto über den Infos */
-@media (max-width: 560px) {
-  .team-karte {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    padding: 24px 20px 16px;
-    border-radius: 18px;
-  }
-
-  .foto {
-    width: 160px;
-  }
-
-  .info {
-    width: 100%;
-  }
-
-  .email {
-    justify-content: center;
-  }
+  color: var(--blau);
+  text-decoration: underline;
 }
 </style>

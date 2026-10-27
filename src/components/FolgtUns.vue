@@ -1,21 +1,36 @@
 <script setup>
 import SocialLinks from './SocialLinks.vue'
+
+// karte = mit hellblauem Hintergrund (Startseite), ohne = einfach auf der Seite (Kontakt)
+defineProps({
+  text: {
+    type: String,
+    default: 'Wollt ihr mehr über unser Projekt wissen, dann folgt uns auf Social Media.'
+  },
+  karte: {
+    type: Boolean,
+    default: true
+  }
+})
 </script>
 
 <template>
-  <section class="folgt-uns" aria-labelledby="folgt-uns-titel">
+  <section class="folgt-uns" :class="{ karte: karte }" aria-labelledby="folgt-uns-titel">
     <h2 id="folgt-uns-titel">Folgt uns</h2>
-    <p>Wollt ihr mehr über unser Projekt wissen, dann folgt uns auf Social Media.</p>
+    <p>{{ text }}</p>
     <SocialLinks />
   </section>
 </template>
 
 <style scoped>
 .folgt-uns {
+  color: var(--blau);
+}
+
+.karte {
   background-color: var(--flaeche);
   border-radius: 24px;
   padding: 28px 40px 20px;
-  color: var(--blau);
 }
 
 h2 {
@@ -30,7 +45,7 @@ p {
 }
 
 @media (max-width: 600px) {
-  .folgt-uns {
+  .karte {
     padding: 24px 20px 16px;
     border-radius: 18px;
   }
