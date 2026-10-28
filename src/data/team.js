@@ -11,7 +11,7 @@ export const team = [
     rollen: ['Projektleiterin', 'Scrum-Master', 'Design / UX'],
     email: 'michaela.giffinger@htl.rennweg.at',
     bild: fotoMichaela,
-    bildPosition: 'center 28%'
+    bildPosition: 'center'
   },
   {
     name: 'Fabian Lielacher',
