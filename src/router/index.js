@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Startseite from '../views/Startseite.vue'
 import Kontakt from '../views/Kontakt.vue'
 import Impressum from '../views/Impressum.vue'
-import NichtGefunden from '../views/NichtGefunden.vue'
+import Seite404 from '../views/404.vue'
 
 // title und beschreibung sieht man bei Google in den Suchergebnissen
 const routes = [
@@ -36,10 +36,10 @@ const routes = [
   // alle anderen Adressen
   {
     path: '/:pathMatch(.*)*',
-    name: 'nicht-gefunden',
-    component: NichtGefunden,
+    name: '404',
+    component: Seite404,
     meta: {
-      title: 'Seite nicht gefunden | SteadyTouch',
+      title: '404 - Seite nicht gefunden | SteadyTouch',
       nichtIndexieren: true
     }
   }
@@ -74,7 +74,7 @@ router.afterEach((to, from) => {
     setzeMeta('description', to.meta.beschreibung)
   }
 
-  // "Seite nicht gefunden" soll nicht bei Google landen
+  // die 404 Seite soll nicht bei Google landen
   setzeMeta('robots', to.meta.nichtIndexieren ? 'noindex' : 'index, follow')
 
   // Canonical = die "echte" Adresse der Seite. Immer steadytouch.at,

@@ -1,13 +1,13 @@
 <template>
-  <section class="container nicht-gefunden" aria-labelledby="nicht-gefunden-titel">
-    <h1 id="nicht-gefunden-titel">Seite nicht gefunden</h1>
+  <section class="container seite-404" aria-labelledby="titel-404">
+    <h1 id="titel-404">404 - Seite nicht gefunden</h1>
     <p>Diese Seite gibt es leider nicht. Vielleicht hat sich ein Tippfehler in die Adresse eingeschlichen.</p>
     <RouterLink to="/" class="zurueck">Zur Startseite</RouterLink>
   </section>
 </template>
 
 <style scoped>
-.nicht-gefunden {
+.seite-404 {
   padding-top: 96px;
   padding-bottom: 64px;
 }
