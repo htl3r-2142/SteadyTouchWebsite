@@ -1,5 +1,5 @@
 <script setup>
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.svg'
 import FolgtUns from '../components/FolgtUns.vue'
 
 // Fortschritt der Diplomarbeit in Prozent - hier einfach anpassen
@@ -21,7 +21,7 @@ const fortschritt = 30
       </div>
 
       <!-- Logo ist nur Deko, der Name steht schon in der Überschrift -->
-      <img class="hero-logo" :src="logo" alt="" width="2048" height="2048" />
+      <img class="hero-logo" :src="logo" alt="" width="479" height="479" />
     </div>
   </section>
 
@@ -131,7 +131,7 @@ h1 {
 
 .hero-logo {
   width: 100%;
-  max-width: 380px;
+  max-width: 340px;
   height: auto;
   justify-self: center;
 }

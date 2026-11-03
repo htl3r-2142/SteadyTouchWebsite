@@ -1,13 +1,13 @@
 <script setup>
-import logo from '../assets/logo.png'
+import logo from '../assets/logo_horizontal_klein.png'
 </script>
 
 <template>
   <header class="header">
     <div class="container header-inhalt">
       <RouterLink to="/" class="marke">
-        <img :src="logo" alt="" width="56" height="56" />
-        <span>SteadyTouch</span>
+        <!-- der Name ist Teil vom Bild, darum muss er im alt-Text stehen -->
+        <img :src="logo" alt="SteadyTouch - zur Startseite" width="187" height="56" />
       </RouterLink>
 
       <nav aria-label="Hauptnavigation">
@@ -41,12 +41,6 @@ import logo from '../assets/logo.png'
 
 .marke {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  color: var(--dunkelblau);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.25rem;
 }
 
 nav ul {
@@ -79,16 +73,13 @@ nav a[aria-current='page'] {
 @media (max-width: 500px) {
   .header-inhalt {
     min-height: 72px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 
   .marke img {
-    width: 40px;
+    width: 134px;
     height: 40px;
-  }
-
-  .marke {
-    font-size: 1.05rem;
-    gap: 6px;
   }
 
   nav ul {
