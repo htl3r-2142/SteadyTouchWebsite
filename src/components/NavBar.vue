@@ -63,9 +63,9 @@ nav a:hover {
   text-underline-offset: 6px;
 }
 
-/* aktuelle Seite: blau und fett (RouterLink setzt aria-current automatisch) */
+/* aktuelle Seite: Farbe vom Logo und fett (RouterLink setzt aria-current automatisch) */
 nav a[aria-current='page'] {
-  color: var(--blau);
+  color: var(--dunkelblau);
   font-weight: 700;
 }
 
