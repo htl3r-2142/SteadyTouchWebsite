@@ -9,10 +9,10 @@ import logoPrintshop from '../assets/sponsoren/printshop_landstrasse_klein.png'
 
 // TODO: Links zu den Websites eintragen
 export const sponsoren = [
-  { name: 'Intersport Ruby', logo: logoIntersport, url: '' },
-  { name: 'Dispomonster', logo: logoDispomonster, url: '' },
-  { name: 'ETAS', logo: logoEtas, url: '' },
-  { name: 'hosttech', logo: logoHosttech, url: '' },
-  { name: 'Manara Springs', logo: logoManara, url: '' },
-  { name: 'Printshop Landstraße', logo: logoPrintshop, url: '' }
+  { name: 'Intersport Ruby', logo: logoIntersport, url: 'https://www.intersport-ruby.at/' },
+  { name: 'Dispomonster', logo: logoDispomonster, url: 'https://dispomonster.com/' },
+  { name: 'ETAS', logo: logoEtas, url: 'https://www.etas.at/' },
+  { name: 'hosttech', logo: logoHosttech, url: 'https://www.hosttech.at/' },
+  { name: 'Manara Springs', logo: logoManara, url: 'https://www.manarasprings.com/' },
+  { name: 'Printshop Landstraße', logo: logoPrintshop, url: 'https://www.printshop-landstrasse.at/' }
 ]
