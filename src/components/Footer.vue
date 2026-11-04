@@ -22,6 +22,7 @@ const socialLinks = social.filter((s) => s.url)
         <h2>Projekt</h2>
         <ul>
           <li><RouterLink to="/">Startseite</RouterLink></li>
+          <li><RouterLink to="/sponsoren">Sponsoren</RouterLink></li>
         </ul>
       </nav>
 

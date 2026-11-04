@@ -65,6 +65,11 @@ img {
   .container {
     padding: 0 18px;
   }
+
+  /* Header ist am Handy zweizeilig und damit höher */
+  html {
+    scroll-padding-top: 130px;
+  }
 }
 
 .skip-link {

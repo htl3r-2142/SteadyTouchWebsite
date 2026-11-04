@@ -13,6 +13,7 @@ import logo from '../assets/logo_horizontal_klein.png'
       <nav aria-label="Hauptnavigation">
         <ul>
           <li><RouterLink to="/">Startseite</RouterLink></li>
+          <li><RouterLink to="/sponsoren">Sponsoren</RouterLink></li>
           <li><RouterLink to="/kontakt">Kontakt</RouterLink></li>
         </ul>
       </nav>
@@ -70,7 +71,7 @@ nav a[aria-current='page'] {
 }
 
 /* Handy */
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .header-inhalt {
     min-height: 72px;
     padding-top: 8px;
