@@ -8,12 +8,13 @@ defineProps({
 
 <template>
   <li class="sponsor">
-    <div class="logo-feld">
-      <img :src="logo" :alt="'Logo von ' + name" />
-    </div>
+    <!-- mit url ist das Logo ein Link, ohne url nur ein Bild -->
+    <component :is="url ? 'a' : 'div'" :href="url || undefined" class="logo-feld">
+      <!-- bei einem Link sagt der alt-Text, wohin er führt (für Screenreader) -->
+      <img :src="logo" :alt="url ? 'Zur Website von ' + name : 'Logo von ' + name" />
+    </component>
 
     <h3>{{ name }}</h3>
-    <a v-if="url" :href="url">Zur Website von {{ name }}</a>
   </li>
 </template>
 
@@ -40,6 +41,11 @@ defineProps({
   border-radius: 16px;
 }
 
+/* zeigt beim Drüberfahren, dass man das Logo anklicken kann */
+a.logo-feld:hover {
+  box-shadow: 0 0 0 2px var(--blau);
+}
+
 .logo-feld img {
   max-width: 100%;
   max-height: 100%;
@@ -52,20 +58,5 @@ h3 {
   font-size: 1.2rem;
   font-weight: 800;
   margin: 20px 0 0;
-}
-
-/* genug Höhe, damit man den Link gut trifft */
-a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  margin-top: 4px;
-  color: var(--blau);
-  font-size: 0.95rem;
-  text-underline-offset: 3px;
-}
-
-a:hover {
-  color: var(--dunkelblau);
 }
 </style>
