@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Startseite from '../views/Startseite.vue'
+import Sponsoren from '../views/Sponsoren.vue'
 import Kontakt from '../views/Kontakt.vue'
 import Impressum from '../views/Impressum.vue'
 import Seite404 from '../views/404.vue'
@@ -13,6 +14,15 @@ const routes = [
     meta: {
       title: 'SteadyTouch – Gestensteuerung für Menschen mit motorischen Einschränkungen',
       beschreibung: 'SteadyTouch erkennt Handgesten per Kamera und filtert Zittern heraus. Stabile Computerbedienung bei Parkinson, MS und anderen motorischen Einschränkungen – eine Diplomarbeit der HTL Rennweg Wien.'
+    }
+  },
+  {
+    path: '/sponsoren',
+    name: 'sponsoren',
+    component: Sponsoren,
+    meta: {
+      title: 'Sponsoren | SteadyTouch',
+      beschreibung: 'Besonderer Dank an die Sponsoren von SteadyTouch, die unsere Diplomarbeit an der HTL Rennweg Wien unterstützen.'
     }
   },
   {
