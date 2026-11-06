@@ -17,7 +17,8 @@ import { sponsoren } from '../data/sponsoren.js'
       <ul class="sponsoren">
         <Sponsor
           v-for="sponsor in sponsoren"
-          :key="sponsor.name"
+          :key="sponsor.id"
+          :id="sponsor.id"
           :name="sponsor.name"
           :logo="sponsor.logo"
           :url="sponsor.url"

@@ -1,5 +1,6 @@
 <script setup>
 defineProps({
+  id: String,
   name: String,
   logo: String,
   url: String
@@ -7,26 +8,44 @@ defineProps({
 </script>
 
 <template>
-  <li class="sponsor">
-    <!-- mit url ist das Logo ein Link, ohne url nur ein Bild -->
-    <component :is="url ? 'a' : 'div'" :href="url || undefined" class="logo-feld">
-      <!-- bei einem Link sagt der alt-Text, wohin er führt (für Screenreader) -->
-      <img :src="logo" :alt="url ? 'Zur Website von ' + name : 'Logo von ' + name" />
-    </component>
+  <li :id="id" class="sponsor">
+    <!-- mit url ist die ganze Karte ein Link, ohne url nur eine Karte -->
+    <component
+      :is="url ? 'a' : 'div'"
+      :href="url || undefined"
+      :aria-label="url ? 'Zur Website von ' + name : undefined"
+      class="karte"
+    >
+      <div class="logo-feld">
+        <!-- bei einem Link sagt schon das aria-label alles, darum hier kein alt-Text -->
+        <img :src="logo" :alt="url ? '' : 'Logo von ' + name" />
+      </div>
 
-    <h3>{{ name }}</h3>
+      <h3>{{ name }}</h3>
+    </component>
   </li>
 </template>
 
 <style scoped>
 .sponsor {
   display: flex;
+}
+
+.karte {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1;
   text-align: center;
+  text-decoration: none;
   background-color: var(--hintergrund);
   border-radius: 24px;
   padding: 24px;
+}
+
+/* zeigt beim Drüberfahren, dass man die Karte anklicken kann */
+a.karte:hover {
+  box-shadow: 0 0 0 3px var(--blau);
 }
 
 /* weißes Feld, weil viele Logos für hellen Hintergrund gemacht sind */
@@ -39,11 +58,6 @@ defineProps({
   padding: 16px;
   background-color: var(--weiss);
   border-radius: 16px;
-}
-
-/* zeigt beim Drüberfahren, dass man das Logo anklicken kann */
-a.logo-feld:hover {
-  box-shadow: 0 0 0 2px var(--blau);
 }
 
 .logo-feld img {
