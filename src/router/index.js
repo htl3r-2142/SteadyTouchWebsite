@@ -56,7 +56,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  // BASE_URL kommt aus vite.config.js (base), sonst findet der Router auf GitHub Pages nichts
+  // BASE_URL kommt aus vite.config.js (base)
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   // bei neuer Seite immer oben anfangen
@@ -88,7 +88,7 @@ router.afterEach((to, from) => {
   setzeMeta('robots', to.meta.nichtIndexieren ? 'noindex' : 'index, follow')
 
   // Canonical = die "echte" Adresse der Seite. Immer steadytouch.at,
-  // damit die Kopie auf GitHub Pages nicht als doppelte Seite zählt
+  // damit z.B. www.steadytouch.at nicht als doppelte Seite zählt
   document.querySelector('link[rel="canonical"]')?.setAttribute('href', 'https://steadytouch.at' + to.path)
 
   // nach einem Seitenwechsel den Fokus auf den Inhalt setzen,
