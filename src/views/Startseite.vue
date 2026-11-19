@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg'
 import FolgtUns from '../components/FolgtUns.vue'
 
 // Fortschritt der Diplomarbeit in Prozent - hier einfach anpassen
-const fortschritt = 42
+const fortschritt = 64
 </script>
 
 <template>
